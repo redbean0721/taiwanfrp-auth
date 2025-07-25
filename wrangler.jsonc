@@ -22,6 +22,12 @@
 			"binding": "TAIWANFRP",
 			"id": "3c4d3c4b8cbe4f3ea49efda3acabf425"
 		}
+	],
+	"routes": [
+		{
+			"pattern": "auth.taiwanfrp.me",
+			"custom_domain": true
+		}
 	]
 	/**
 	 * Smart Placement
