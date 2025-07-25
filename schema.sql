@@ -14,15 +14,6 @@ CREATE TABLE IF NOT EXISTS `users` (
     `is_admin` INTEGER NOT NULL DEFAULT 0,
     `use_totp` INTEGER NOT NULL DEFAULT 0,
     `totp_secret` TEXT DEFAULT NULL,
-    `created_at` INTEGER NOT NULL DEFAULT strftime('%s', 'now'),
-    `updated_at` INTEGER NOT NULL DEFAULT strftime('%s', 'now')
-)
-
--- 建立觸發器以自動更新 updated_at 欄位
-DROP TRIGGER IF EXISTS `update_users_timestamp`;
-CREATE TRIGGER IF NOT EXISTS `update_users_timestamp`
-AFTER UPDATE ON `users`
-FOR EACH ROW
-BEGIN
-    UPDATE `users` SET updated_at = strftime('%s', 'now') WHERE id = OLD.id;
-END;
+    `created_at` INTEGER NOT NULL,
+    `updated_at` INTEGER NOT NULL
+);
